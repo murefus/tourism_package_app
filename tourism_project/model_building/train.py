@@ -100,4 +100,4 @@ with mlflow.start_run():
     os.makedirs(os.path.dirname(model_path), exist_ok=True) # Ensure the directory exists
     joblib.dump(best_model, model_path)  # save the model
     mlflow.log_artifact(model_path, artifact_path="model")
-    print(f
+    print(f"Model saved to {model_path}")
