@@ -58,7 +58,7 @@ with mlflow.start_run():
     # so all experiments can be compared side by side in the MLflow UI
     results = grid_search.cv_results_
     for i in range(len(results["params"])):S
-        with mlflow.start_run(nested=True):
+       with mlflow.start_run(nested=True):
             mlflow.log_params(results["params"][i])
             mlflow.log_metric("mean_test_score", results["mean_test_score"][i])
             mlflow.log_metric("std_test_score", results["std_test_score"][i])
