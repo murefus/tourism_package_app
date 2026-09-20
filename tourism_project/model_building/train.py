@@ -57,8 +57,8 @@ with mlflow.start_run():
     # Log every parameter combination tried during the search as a nested run,
     # so all experiments can be compared side by side in the MLflow UI
     results = grid_search.cv_results_
-    for i in range(len(results["params"])):S
-    with mlflow.start_run(nested=True):
+    for i in range(len(results["params"])):
+        with mlflow.start_run(nested=True):
             mlflow.log_params(results["params"][i])
             mlflow.log_metric("mean_test_score", results["mean_test_score"][i])
             mlflow.log_metric("std_test_score", results["std_test_score"][i])
@@ -100,4 +100,4 @@ with mlflow.start_run():
     os.makedirs(os.path.dirname(model_path), exist_ok=True) # Ensure the directory exists
     joblib.dump(best_model, model_path)  # save the model
     mlflow.log_artifact(model_path, artifact_path="model")
-    print(f"Model saved to {model_path}")
+    print(f
